@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -23,3 +24,32 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ main {
+  width: 450px;
+  padding: 20px;
+  margin: auto;
+  background: white;
+  position: relative;
+  top: 140px;
+ }
+
+ h2 {
+  border-bottom-style: solid;
+  margin-top: 0;
+ }
+
+ textarea {
+  width: 100%;
+  text-indent: 2px;
+ }
+
+ .new-tweet {
+  border: solid grey;
+  padding: 8px;
+  border-radius: 2.5%;
+  background-color: #eeeeee;
+ }
+
+.counter {
+  float: right;
+}
