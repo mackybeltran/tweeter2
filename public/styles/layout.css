@@ -33,7 +33,7 @@ body {
   top: 140px;
  }
 
- h2 {
+ .compose {
   border-bottom-style: solid;
   margin-top: 0;
  }
@@ -43,13 +43,82 @@ body {
   text-indent: 2px;
  }
 
- .new-tweet {
+.new-tweet {
   border: solid grey;
   padding: 8px;
-  border-radius: 2.5%;
+  border-radius: 1.5%;
   background-color: #eeeeee;
  }
 
 .counter {
   float: right;
 }
+
+#old-tweets {
+  margin-top: 40px;
+}
+
+article {
+  border: solid grey;
+  border-radius: 1.5%;
+  margin-bottom: 30px;
+}
+
+article:hover {
+  box-shadow: 2px 2px;
+}
+
+article:hover .icons {
+  visibility: visible;
+}
+
+.avatar {
+  float: left;
+  position: relative;
+  top: 10px;
+  margin-left: 10px;
+}
+
+.username {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+
+}
+
+.tweeter-handle {
+  float: right;
+  position: relative;
+  padding-right: 6px;
+  padding-top: 15px
+}
+
+header {
+  border-bottom: solid grey;
+  background-color: #eeeeee;
+
+}
+
+footer {
+  border-top: solid black;
+  font-size: 12px;
+  text-indent: 8px;
+  border-width: thin;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.tweettext {
+  text-indent: 8px;
+  border-width: thin;
+  padding-bottom: 40px;
+  margin-left: 10px;
+}
+.material-icons {
+  float: right;
+  color: #056360;
+  position: relative;
+  bottom: 20px;
+
+}
+
