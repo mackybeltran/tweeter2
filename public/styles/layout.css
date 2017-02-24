@@ -46,7 +46,7 @@ body {
 .new-tweet {
   border: solid grey;
   padding: 8px;
-  border-radius: 1.5%;
+  border-radius: 4px;
   background-color: #eeeeee;
  }
 
@@ -60,7 +60,7 @@ body {
 
 article {
   border: solid grey;
-  border-radius: 1.5%;
+  border-radius: 4px;
   margin-bottom: 30px;
 }
 

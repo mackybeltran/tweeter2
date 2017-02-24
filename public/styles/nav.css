@@ -25,3 +25,18 @@
   padding-left: 10px;
   top: 25%;
 }
+
+#nav-bar .compose {
+  float: right;
+  border: solid black;
+  padding: 12px;
+  font-size: 18px;
+  margin-top: 12px;
+  background-color: #669898;
+  box-shadow: 2px 2px grey;
+  border-radius: 4px;
+}
+
+#nav-bar .compose:hover {
+  background-color: #0a3838;
+}
