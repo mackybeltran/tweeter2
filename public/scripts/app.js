@@ -56,11 +56,32 @@ function loadNewTweet(){
 
 }
 
-$(".tweetbtn").click(function(event){
-  event.preventDefault();
-  loadNewTweet();
-  $("textarea").val("");
-})
+
+function addNewUser(){
+  $.ajax({
+    method: 'POST'
+    url: ("/users"),
+    data: {username: username,
+           handle:  handle,
+           password: password,
+
+
+    }
+  })
+}
+
+// sample code for AJAX call ==> post to /users
+// $(".registerbutton").click(function(event){
+//   event.preventDefault()
+//   addNewUser()
+
+// }}
+
+// $(".tweetbtn").click(function(event){
+//   event.preventDefault();
+//   loadNewTweet();
+//   $("textarea").val("");
+// })
 
 function loadTweetData() {
   //Make an AJAX GET to /tweets
