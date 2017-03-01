@@ -59,7 +59,7 @@ function loadNewTweet(){
 
 function addNewUser(){
   $.ajax({
-    method: 'POST'
+    method: 'POST',
     url: ("/users"),
     data: {username: username,
            handle:  handle,
