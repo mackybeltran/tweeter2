@@ -3,57 +3,58 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function(){
-function createTweetElement (tweetObj){
-  let output = ""
-  output += `<article>
-          <header>
-              <img class="avatar" src="${tweetObj.user.avatars.small}" width="40px" height="40px">
-              <h5 class="username">${tweetObj.user.name}</h2>
-              <span class="tweeter-handle">${tweetObj.user.handle}</span>
-          </header>
-          <p class="tweettext">${tweetObj.content.text}</p>
-          <footer>
+ $(document).ready(function(){
+  function createTweetElement (tweetObj){
+    let output = ""
+    output += `<article>
+    <header>
+    <img class="avatar" src="${tweetObj.user.avatars.small}" width="40px" height="40px">
+    <h5 class="username">${tweetObj.user.name}</h2>
+    <span class="tweeter-handle">${tweetObj.user.handle}</span>
+    </header>
+    <p class="tweettext">${tweetObj.content.text}</p>
+    <footer>
 
-              ${tweetObj.created_at}
-            <div class="icons">
-              <i class="material-icons">favorite</i>
-              <i class="material-icons">cached</i>
-              <i class="material-icons">bookmark</i>
-            </div>
+    ${tweetObj.created_at}
+    <div class="icons">
+    <i class="material-icons">favorite</i>
+    <i class="material-icons">cached</i>
+    <i class="material-icons">bookmark</i>
+    </div>
 
 
-          </footer>`;
-          return output
-}
-$(".compose").click(function() {
+    </footer>`;
+    return output
+  }
+  $(".compose").click(function() {
    $(".new-tweet").slideToggle(600);
    $(".tweetText").focus();
  });
 
-function renderTweets(tweets){
-  var $tweets = $("#old-tweets").empty();
-  tweets.forEach(function(tweet) {
-    $($tweets).prepend(createTweetElement(tweet))
-  });
-}
+  function renderTweets(tweets){
+    var $tweets = $("#old-tweets").empty();
+    tweets.forEach(function(tweet) {
+      $($tweets).prepend(createTweetElement(tweet))
+    });
+  }
 
 
-function loadNewTweet(){
-  const formData = $("textarea").val()
-    if (!formData.length){
+  function loadNewTweet(){
+    const text = $("textarea").val()
+    if (!text.length){
       alert("Please Type Text to Tweet!");
       return;
-    } else if (formData.length > 140){
+    } else if (text.length > 140){
       alert("Max 140 Characters. Try Again.");
       return;
-    } $.ajax({
-    method: 'POST',
-    url: ("/tweets"),
-    data: {text: formData}
-
-}).done((loadTweetData))
-}
+    }
+    $.ajax({
+      method: 'POST',
+      url: ("/tweets"),
+      data: $('form').serialize()
+    })
+    .done(loadTweetData)
+  }
 
 
 
@@ -90,7 +91,7 @@ function loadTweetData() {
   $.ajax({
     method: 'GET',
     url: ("/tweets"),
-  }) .then(renderTweets)
+  }).then(renderTweets)
 }
 
 // renderTweets(data)
