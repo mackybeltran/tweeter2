@@ -48,6 +48,7 @@ body {
   padding: 8px;
   border-radius: 4px;
   background-color: #eeeeee;
+  display: none;
  }
 
 .counter {

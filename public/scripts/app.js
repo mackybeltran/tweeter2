@@ -26,49 +26,50 @@ function createTweetElement (tweetObj){
           </footer>`;
           return output
 }
-$(".compose").click(function(){
-  $(".tweetText").focus()
-})
-
+$(".compose").click(function() {
+   $(".new-tweet").slideToggle(600);
+   $(".tweetText").focus();
+ });
 
 function renderTweets(tweets){
-  var $tweets = $("#old-tweets");
+  var $tweets = $("#old-tweets").empty();
   tweets.forEach(function(tweet) {
     $($tweets).prepend(createTweetElement(tweet))
   });
 }
+
 
 function loadNewTweet(){
   const formData = $("textarea").val()
     if (!formData.length){
       alert("Please Type Text to Tweet!");
       return;
-    } if (formData.length > 140){
-      alert("Max 140 Characters. Try Again.")
-    } else {
-  $.ajax({
+    } else if (formData.length > 140){
+      alert("Max 140 Characters. Try Again.");
+      return;
+    } $.ajax({
     method: 'POST',
     url: ("/tweets"),
     data: {text: formData}
 
-}).then(loadTweetData)
+}).done((loadTweetData))
 }
 
-}
 
 
-function addNewUser(){
-  $.ajax({
-    method: 'POST',
-    url: ("/users"),
-    data: {username: username,
-           handle:  handle,
-           password: password,
+
+// function addNewUser(){
+//   $.ajax({
+//     method: 'POST',
+//     url: ("/users"),
+//     data: {username: username,
+//            handle:  handle,
+//            password: password,
 
 
-    }
-  })
-}
+//     }
+//   })
+// }
 
 // sample code for AJAX call ==> post to /users
 // $(".registerbutton").click(function(event){
@@ -77,11 +78,11 @@ function addNewUser(){
 
 // }}
 
-// $(".tweetbtn").click(function(event){
-//   event.preventDefault();
-//   loadNewTweet();
-//   $("textarea").val("");
-// })
+$(".tweetbtn").click(function(event){
+  event.preventDefault();
+  loadNewTweet();
+  $("textarea").val("");
+})
 
 function loadTweetData() {
   //Make an AJAX GET to /tweets
@@ -93,8 +94,8 @@ function loadTweetData() {
 }
 
 // renderTweets(data)
-loadTweetData();
 
+loadTweetData();
 
 
 })
